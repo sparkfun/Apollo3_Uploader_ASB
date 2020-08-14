@@ -20,6 +20,7 @@ jobs:
 
       - name: build
         run: |
+          python -m pip install --upgrade pip setuptools wheel
           pyinstaller --onefile asb/requirements.txt 
 
       - name: copy
