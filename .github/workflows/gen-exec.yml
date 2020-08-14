@@ -23,6 +23,9 @@ jobs:
       - name: build
         run: |
           echo $PATH
+          echo "=-------="
+          export PATH="$PATH:mythingy"
+
           which pyinstaller
           pyinstaller --onefile asb/asb.py
 
