@@ -16,7 +16,7 @@ jobs:
       
       - name: install dependencies
         run: |
-          pip install -r asb/requirements.txt
+          pip3 install -r asb/requirements.txt
 
       - name: build
         run: |
