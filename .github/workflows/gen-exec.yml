@@ -22,6 +22,8 @@ jobs:
 
       - name: build
         run: |
+          echo $PATH
+          which pyinstaller
           pyinstaller --onefile asb/asb.py
 
       - name: copy
