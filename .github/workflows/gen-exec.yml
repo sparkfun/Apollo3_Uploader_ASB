@@ -16,12 +16,12 @@ jobs:
       
       - name: install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
+          python3 -m pip install --upgrade pip setuptools wheel
           pip3 install -r asb/requirements.txt
 
       - name: build
         run: |
-          pyinstaller --onefile asb/requirements.txt 
+          pyinstaller --onefile asb/asb.py
 
       - name: copy
         run: |
