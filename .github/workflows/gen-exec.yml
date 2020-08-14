@@ -16,17 +16,11 @@ jobs:
       
       - name: install dependencies
         run: |
-          export PATH="`python3 -m site --user-base`/bin:$PATH"
-          python3 -m pip install --upgrade pip setuptools wheel
-          pip3 install -r asb/requirements.txt
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -r asb/requirements.txt
 
       - name: build
         run: |
-          echo $PATH
-          echo "=-------="
-          export PATH="$PATH:mythingy"
-
-          which pyinstaller
           pyinstaller --onefile asb/asb.py
 
       - name: copy
