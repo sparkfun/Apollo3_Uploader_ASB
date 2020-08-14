@@ -13,35 +13,53 @@ jobs:
         with:
           path: asb
           fetch-depth: 0
+      
+      - name: install dependencies
+        run: |
+          pip install -r asb/requirements.txt
 
       - name: build
         run: |
-          echo "I am the linux builder"
+          pyinstaller --onefile asb/requirements.txt 
 
-  macos:
-    name: macos
-    runs-on: macos-latest
-    steps:
-      - name: check out code
-        uses: actions/checkout@v2.3.1
-        with:
-          path: asb
-          fetch-depth: 0
-
-      - name: build
+      - name: copy
         run: |
-          echo "I am the macosx builder"
+          rm -rf ./asb/dist/linux
+          mkdir -p ./asb/dist/linux
+          mv ./dist/asb ./asb/dist/linux/asb
 
-  windows:
-    name: windows
-    runs-on: windows-latest
-    steps:
-      - name: check out code
-        uses: actions/checkout@v2.3.1
-        with:
-          path: asb
-          fetch-depth: 0
+  # macos:
+  #   name: macos
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: check out code
+  #       uses: actions/checkout@v2.3.1
+  #       with:
+  #         path: asb
+  #         fetch-depth: 0
 
-      - name: build
-        run: |
-          echo "I am the windows builder"
+  #     - name: install dependencies
+  #       run: |
+  #         pip install -r asb/requirements.txt
+
+  #     - name: build
+  #       run: |
+  #         echo "I am the macosx builder"
+
+  # windows:
+  #   name: windows
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: check out code
+  #       uses: actions/checkout@v2.3.1
+  #       with:
+  #         path: asb
+  #         fetch-depth: 0
+
+  #     - name: install dependencies
+  #       run: |
+  #         pip install -r asb/requirements.txt
+
+  #     - name: build
+  #       run: |
+  #         echo "I am the windows builder"
