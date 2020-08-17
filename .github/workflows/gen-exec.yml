@@ -123,9 +123,9 @@ jobs:
           git config --global user.name "apollo3-uploader-builder"
           git config --global pull.ff only
           cd asb
+          git status
 # git pull
 # cd ${GITHUB_WORKSPACE}
-
       - name: install
         run: |
           python --version
