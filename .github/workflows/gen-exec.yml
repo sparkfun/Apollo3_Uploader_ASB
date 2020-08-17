@@ -45,7 +45,7 @@ jobs:
           cd ./asb
           git add ./dist/linux/*
           git commit -m "generated linux executable"
-          git push -f
+          git push
           cd ${GITHUB_WORKSPACE}
 
   macosx:
@@ -90,7 +90,7 @@ jobs:
           cd ./asb
           git add ./dist/macosx/*
           git commit -m "generated macosx executable"
-          git push -f
+          git push
           cd ${GITHUB_WORKSPACE}
 
   windows:
@@ -135,5 +135,5 @@ jobs:
           cd asb
           git add dist\windows\*
           git commit -m "generated windows executable"
-          git push -f
+          git push
           cd ${GITHUB_WORKSPACE}
