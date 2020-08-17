@@ -124,8 +124,9 @@ jobs:
           git config --global pull.ff only
           cd asb
           git status
-# git pull
-# cd ${GITHUB_WORKSPACE}
+          git pull
+          cd %GITHUB_WORKSPACE%
+
       - name: install
         run: |
           python --version
