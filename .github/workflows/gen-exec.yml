@@ -4,9 +4,99 @@ on:
 name: generate executables
 
 jobs:
-  linux:
-    name: linux
-    runs-on: ubuntu-latest
+  # linux:
+  #   name: linux
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: repo
+  #       uses: actions/checkout@v2.3.1
+  #       with:
+  #         path: asb
+  #         fetch-depth: 0
+
+  #     - name: python
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: '3.7'
+
+  #     - name: git
+  #       run: |
+  #         git config --global user.email "apollo3-uploader-builder@sparkfun.com"
+  #         git config --global user.name "apollo3-uploader-builder"
+
+  #     - name: install
+  #       run: |
+  #         python --version
+  #         python -m pip install --upgrade pip setuptools wheel
+  #         pip install -r asb/requirements.txt
+
+  #     - name: build
+  #       run: |
+  #         pyinstaller --onefile asb/asb.py
+
+  #     - name: copy
+  #       run: |
+  #         rm -rf ./asb/dist/linux
+  #         mkdir -p ./asb/dist/linux
+  #         mv ./dist/asb ./asb/dist/linux/asb
+
+  #     - name: commit
+  #       run: |
+  #         cd ./asb
+  #         git add ./dist/linux/*
+  #         git commit -m "generated linux executable"
+  #         git push -f
+  #         cd ${GITHUB_WORKSPACE}
+
+  # macosx:
+  #   name: macosx
+  #   needs: linux
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: repo
+  #       uses: actions/checkout@v2.3.1
+  #       with:
+  #         path: asb
+  #         fetch-depth: 0
+
+  #     - name: python
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: '3.7'
+
+  #     - name: git
+  #       run: |
+  #         git config --global user.email "apollo3-uploader-builder@sparkfun.com"
+  #         git config --global user.name "apollo3-uploader-builder"
+
+  #     - name: install
+  #       run: |
+  #         python --version
+  #         python -m pip install --upgrade pip setuptools wheel
+  #         pip install -r asb/requirements.txt
+
+  #     - name: build
+  #       run: |
+  #         pyinstaller --onefile asb/asb.py
+
+  #     - name: copy
+  #       run: |
+  #         rm -rf ./asb/dist/macosx
+  #         mkdir -p ./asb/dist/macosx
+  #         mv ./dist/asb ./asb/dist/macosx/asb
+
+  #     - name: commit
+  #       run: |
+  #         cd ./asb
+  #         git add ./dist/macosx/*
+  #         git commit -m "generated macosx executable"
+  #         git push -f
+  #         cd ${GITHUB_WORKSPACE}
+
+  windows:
+    name: windows
+    # needs: macosx
+    runs-on: windows-latest
     steps:
       - name: repo
         uses: actions/checkout@v2.3.1
@@ -36,95 +126,7 @@ jobs:
 
       - name: copy
         run: |
-          rm -rf ./asb/dist/linux
-          mkdir -p ./asb/dist/linux
-          mv ./dist/asb ./asb/dist/linux/asb
-
-      - name: commit
-        run: |
-          cd ./asb
-          git add ./dist/linux/*
-          git commit -m "generated linux executable"
-          git push -f
-          cd ${GITHUB_WORKSPACE}
-
-  macosx:
-    name: macosx
-    needs: linux
-    runs-on: macos-latest
-    steps:
-      - name: check out code
-        uses: actions/checkout@v2.3.1
-        with:
-          path: asb
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.7'
-
-      - name: git
-        run: |
-          git config --global user.email "apollo3-uploader-builder@sparkfun.com"
-          git config --global user.name "apollo3-uploader-builder"
-
-      - name: install
-        run: |
-          python --version
-          python -m pip install --upgrade pip setuptools wheel
-          pip install -r asb/requirements.txt
-
-      - name: build
-        run: |
-          pyinstaller --onefile asb/asb.py
-
-      - name: copy
-        run: |
-          rm -rf ./asb/dist/macosx
-          mkdir -p ./asb/dist/macosx
-          mv ./dist/asb ./asb/dist/macosx/asb
-
-      - name: commit
-        run: |
-          cd ./asb
-          git add ./dist/macosx/*
-          git commit -m "generated macosx executable"
-          git push -f
-          cd ${GITHUB_WORKSPACE}
-
-  windows:
-    name: windows
-    needs: macosx
-    runs-on: windows-latest
-    steps:
-      - name: check out code
-        uses: actions/checkout@v2.3.1
-        with:
-          path: asb
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.7'
-
-      - name: git
-        run: |
-          git config --global user.email "apollo3-uploader-builder@sparkfun.com"
-          git config --global user.name "apollo3-uploader-builder"
-
-      - name: install
-        run: |
-          python --version
-          python -m pip install --upgrade pip setuptools wheel
-          pip install -r asb/requirements.txt
-
-      - name: build
-        run: |
-          pyinstaller --onefile asb/asb.py
-
-      - name: copy
-        run: |
-          rmdir /s asb\dist\windows
+          rmdir asb\dist\windows /s /q
           mkdir asb\dist\windows
           move /y dist\asb.exe asb\dist\windows\asb.exe
 
