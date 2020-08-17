@@ -18,17 +18,11 @@ jobs:
         with:
           python-version: '3.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
 
-      - name: test python
+      - name: install
         run: |
           python --version
           python -m pip install --upgrade pip setuptools wheel
           pip install -r asb/requirements.txt
-
-      # - name: install dependencies
-      #   run: |
-      #     python3 -m pip install --upgrade pip setuptools wheel
-      #     pip3 install -r asb/requirements.txt
-      #     export PATH="$PATH:/home/runner/.local/bin"
 
       - name: build
         run: |
@@ -39,6 +33,13 @@ jobs:
           rm -rf ./asb/dist/linux
           mkdir -p ./asb/dist/linux
           mv ./dist/asb ./asb/dist/linux/asb
+
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: linux binary
+          path: ./asb/src/dist/linux/
+      
 
   # macos:
   #   name: macos
