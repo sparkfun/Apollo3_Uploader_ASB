@@ -13,12 +13,23 @@ jobs:
         with:
           path: asb
           fetch-depth: 0
-      
-      - name: install dependencies
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x86' # optional x64 or x86. Defaults to x64 if not specified
+
+      - name: test python
         run: |
-          python3 -m pip install --upgrade pip setuptools wheel
-          pip3 install -r asb/requirements.txt
-          export PATH="$PATH:/home/runner/.local/bin"
+          python --version
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -r asb/requirements.txt
+
+      # - name: install dependencies
+      #   run: |
+      #     python3 -m pip install --upgrade pip setuptools wheel
+      #     pip3 install -r asb/requirements.txt
+      #     export PATH="$PATH:/home/runner/.local/bin"
 
       - name: build
         run: |
