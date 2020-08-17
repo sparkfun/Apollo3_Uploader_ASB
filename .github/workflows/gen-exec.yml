@@ -23,7 +23,7 @@ jobs:
         run: |
           git config --global user.email "apollo3-uploader-builder@sparkfun.com"
           git config --global user.name "apollo3-uploader-builder"
-          git config pull.ff only
+          git config --global pull.ff only
           cd asb
           git pull
           cd ${GITHUB_WORKSPACE}
@@ -72,7 +72,7 @@ jobs:
         run: |
           git config --global user.email "apollo3-uploader-builder@sparkfun.com"
           git config --global user.name "apollo3-uploader-builder"
-          git config pull.ff only
+          git config --global pull.ff only
           cd asb
           git pull
           cd ${GITHUB_WORKSPACE}
@@ -121,7 +121,7 @@ jobs:
         run: |
           git config --global user.email "apollo3-uploader-builder@sparkfun.com"
           git config --global user.name "apollo3-uploader-builder"
-          git config pull.ff only
+          git config --global pull.ff only
           cd asb
           git pull
           cd ${GITHUB_WORKSPACE}
