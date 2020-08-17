@@ -23,6 +23,9 @@ jobs:
         run: |
           git config --global user.email "apollo3-uploader-builder@sparkfun.com"
           git config --global user.name "apollo3-uploader-builder"
+          cd asb
+          git pull
+          cd ${GITHUB_WORKSPACE}
 
       - name: install
         run: |
@@ -68,6 +71,9 @@ jobs:
         run: |
           git config --global user.email "apollo3-uploader-builder@sparkfun.com"
           git config --global user.name "apollo3-uploader-builder"
+          cd asb
+          git pull
+          cd ${GITHUB_WORKSPACE}
 
       - name: install
         run: |
@@ -113,6 +119,9 @@ jobs:
         run: |
           git config --global user.email "apollo3-uploader-builder@sparkfun.com"
           git config --global user.name "apollo3-uploader-builder"
+          cd asb
+          git pull
+          cd ${GITHUB_WORKSPACE}
 
       - name: install
         run: |
