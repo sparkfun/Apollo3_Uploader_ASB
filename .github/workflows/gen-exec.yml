@@ -126,7 +126,7 @@ jobs:
 
       - name: copy
         run: |
-          rmdir asb\dist\windows /s /q
+          Remove-Item -Recurse -Force asb\dist\windows
           mkdir asb\dist\windows
           move /y dist\asb.exe asb\dist\windows\asb.exe
 
