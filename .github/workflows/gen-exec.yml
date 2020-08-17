@@ -123,8 +123,8 @@ jobs:
           git config --global user.name "apollo3-uploader-builder"
           git config --global pull.ff only
           cd asb
-          git pull
-          cd ${GITHUB_WORKSPACE}
+# git pull
+# cd ${GITHUB_WORKSPACE}
 
       - name: install
         run: |
