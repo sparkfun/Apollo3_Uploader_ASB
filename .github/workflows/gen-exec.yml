@@ -34,11 +34,14 @@ jobs:
           mkdir -p ./asb/dist/linux
           mv ./dist/asb ./asb/dist/linux/asb
 
-      - name: upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: linux binary
-          path: ./asb/src/dist/linux/
+      - name: commit
+        run: |
+          cd ./asb
+          git status
+          git add ./dist/linux/*
+          git commit -m "generated linux executable"
+          git push -f
+          cd ${GITHUB_WORKSPACE}
       
 
   # macos:
