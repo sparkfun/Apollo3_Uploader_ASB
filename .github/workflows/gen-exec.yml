@@ -128,7 +128,7 @@ jobs:
         run: |
           Remove-Item -Recurse -Force asb\dist\windows
           mkdir asb\dist\windows
-          move /y dist\asb.exe asb\dist\windows\asb.exe
+          Move-Item -Path dist\asb.exe -Destination asb\dist\windows\asb.exe
 
       - name: commit
         run: |
