@@ -121,14 +121,14 @@ jobs:
 
       - name: copy
         run: |
-          rm -rf ./asb/dist/windows
-          mkdir -p ./asb/dist/windows
-          mv ./dist/asb ./asb/dist/windows/asb
+          rmdir /s /q asb\dist\windows
+          mkdir asb\dist\windows
+          move /y dist\asb.exe asb\dist\windows\asb.exe
 
       - name: commit
         run: |
-          cd ./asb
-          git add ./dist/windows/*
+          cd asb
+          git add dist\windows\*
           git commit -m "generated windows executable"
           git push -f
           cd ${GITHUB_WORKSPACE}
