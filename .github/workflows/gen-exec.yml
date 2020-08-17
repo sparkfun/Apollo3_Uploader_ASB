@@ -49,6 +49,7 @@ jobs:
 
   macosx:
     name: macosx
+    needs: linux
     runs-on: macos-latest
     steps:
       - name: check out code
@@ -92,6 +93,7 @@ jobs:
 
   windows:
     name: windows
+    needs: macosx
     runs-on: windows-latest
     steps:
       - name: check out code
