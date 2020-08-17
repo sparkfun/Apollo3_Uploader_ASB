@@ -18,6 +18,11 @@ jobs:
         with:
           python-version: '3.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
 
+      - name: git
+        run: |
+          git config --global user.email "apollo3-uploader-builder@sparkfun.com"
+          git config --global user.name "apollo3-uploader-builder"
+
       - name: install
         run: |
           python --version
