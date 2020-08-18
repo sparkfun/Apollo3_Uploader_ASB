@@ -39,14 +39,14 @@ jobs:
       - name: build
         run: |
           cd asb
-          pyinstaller --onefile asb.py
+          pyinstaller --onefile asb/asb.py
           cd ${GITHUB_WORKSPACE}
 
       - name: copy
         run: |
           Remove-Item -Recurse -Force asb\dist\windows
           mkdir asb\dist\windows
-          Move-Item -Path dist\asb.exe -Destination asb\dist\windows\asb.exe
+          Move-Item -Path asb\dist\asb.exe -Destination asb\dist\windows\asb.exe
 
       - name: commit
         run: |
