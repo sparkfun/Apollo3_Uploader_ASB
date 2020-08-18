@@ -1,4 +1,4 @@
 ###### Requirements ######`
 pyinstaller == 3.6
 pycryptodome
-serial
+pyserial
