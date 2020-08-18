@@ -1,2 +1,4 @@
-###### Requirements without Version Specifiers ######`
+###### Requirements ######`
 pyinstaller == 3.6
+pycryptodome
+serial
