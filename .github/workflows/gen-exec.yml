@@ -39,7 +39,7 @@ jobs:
       - name: build
         run: |
           cd asb
-          pyinstaller --onefile asb/asb.py
+          pyinstaller --onefile asb.py
           cd ${GITHUB_WORKSPACE}
 
       - name: copy
@@ -98,7 +98,7 @@ jobs:
         run: |
           rm -rf ./asb/dist/linux
           mkdir -p ./asb/dist/linux
-          mv ./dist/asb ./asb/dist/linux/asb
+          mv ./asb/dist/asb ./asb/dist/linux/asb
 
       - name: commit
         run: |
@@ -150,7 +150,7 @@ jobs:
         run: |
           rm -rf ./asb/dist/macosx
           mkdir -p ./asb/dist/macosx
-          mv ./dist/asb ./asb/dist/macosx/asb
+          mv ./asb/dist/asb ./asb/dist/macosx/asb
 
       - name: commit
         run: |
