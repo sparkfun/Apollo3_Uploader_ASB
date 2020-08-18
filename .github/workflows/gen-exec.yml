@@ -37,7 +37,9 @@ jobs:
 
       - name: build
         run: |
-          pyinstaller --onefile asb/asb.py
+          cd asb
+          pyinstaller --onefile asb.py
+          cd ${GITHUB_WORKSPACE}
 
       - name: copy
         run: |
@@ -86,7 +88,9 @@ jobs:
 
       - name: build
         run: |
-          pyinstaller --onefile asb/asb.py
+          cd asb
+          pyinstaller --onefile asb.py
+          cd ${GITHUB_WORKSPACE}
 
       - name: copy
         run: |
@@ -135,7 +139,9 @@ jobs:
 
       - name: build
         run: |
-          pyinstaller --onefile asb/asb.py
+          cd asb
+          pyinstaller --onefile asb.py
+          cd ${GITHUB_WORKSPACE}
 
       - name: copy
         run: |
