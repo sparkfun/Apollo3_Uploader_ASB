@@ -9,7 +9,9 @@
   * Python is installed on your computer
   * your program is compiled + linked to support the ASB (binary offset ```0xC000```)
 * use the ASB loader script to upload to the board
+  
   ```python asb.py [flags (all required)]```
+  
   * ```--bin``` **filepath**: path to the binary image of your program to upload
   * ```--load-address-blob``` **load address**: 0x20000
   * ```--magic-num``` **magic**: 0xCB
